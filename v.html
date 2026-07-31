@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend's Day ❤️</title>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --bg-gradient: linear-gradient(135deg, #ffb3c6, #ff8fa3);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-gradient);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; 
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .message {
+            color: #444;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .heart-container {
+            margin: 30px 0;
+        }
+
+        .heart {
+            font-size: 4rem;
+            animation: pulse 1.5s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background-color: #ff3355;
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4);
+        }
+
+        .photo-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ffb3c6;
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+            background-color: #ffe6ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff4d6d;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            pointer-events: none;
+            animation: floatUp 4s linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="photo-frame">
+            <img src="/Users/parthsrivastava/Desktop/untitled folder 2/IMG_6207.jpeg">
+        </div>
+
+        <h1>Happy Girlfriend's Day!</h1>
+        <div class="subtitle">To my Vidzzyyy</div>
+        
+        <div class="heart-container">
+            <div class="heart">💖</div>
+        </div>
+
+        <div class="message">
+            Thank you for being my person all this time. You are not perfect but beautifully flawed and have a certain innocence. I don't like admitting it but mann sa lagta nhi hai without you and your crazy pro max level shitttt. Comeback back soonnn bhaaluuuuu. And thank you for once again making talking with you at night the best thing about a day!!!!
+        </div>
+
+        <button id="surpriseBtn">Click for a surprise!</button>
+    </div>
+
+    
+    <audio id="bgMusic" loop>
+        <source src="/Users/parthsrivastava/Desktop/untitled folder 2/Phir Mohabbat Murder 2 320 Kbps.mp3" type="audio/mpeg">
+        
+    </audio>
+
+    <script>
+        document.getElementById('surpriseBtn').addEventListener('click', function() {
+            // Play the background music
+            const music = document.getElementById('bgMusic');
+            if (music.paused) {
+                music.play();
+            }
+
+            // Change button text
+            this.innerText = "I Love You 3000! 💕";
+            
+            // Create a shower of floating hearts
+            createHeartShower();
+        });
+
+        function createHeartShower() {
+            const colors = ['❤️', '💖', '💕', '💗', '💓'];
+            
+            for (let i = 0; i < 300; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('floating-heart');
+                    
+                    heart.innerText = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                    
+                }, i * 100); 
+            }
+        }
+    </script>
+</body>
+</html>
