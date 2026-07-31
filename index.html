@@ -11,15 +11,15 @@
         }
 
         body {
-            margin: auto;
-            padding: 0;
+            margin: 0;
+            padding: 2rem 0; /* Breathing room for mobile */
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
             background: var(--bg-gradient);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden; 
+            overflow-x: hidden; /* Hides horizontal scrollbars from hearts */
+            overflow-y: auto; /* Allows vertical scrolling */
         }
 
         .card {
@@ -32,6 +32,7 @@
             width: 90%;
             position: relative;
             z-index: 10;
+            margin: auto; /* Centers card while allowing scrolling */
         }
 
         h1 {
